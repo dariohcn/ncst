@@ -1,58 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encuesta</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta</title>
 </head>
 <body>
-  <h1>Encuesta</h1>
-  <form id="survey-form">
-    <label for="question1">¿Cuál es tu color favorito?</label><br>
-    <select id="question1" name="question1" required>
-      <option value="rojo">Rojo</option>
-      <option value="azul">Azul</option>
-      <option value="verde">Verde</option>
-      <option value="amarillo">Amarillo</option>
-    </select><br><br>
+    <h1>Encuesta</h1>
+    <form id="surveyForm">
+        <div>
+            <label for="q1">1. ¿Cuál es su color favorito?</label><br>
+            <input type="radio" name="q1" value="Rojo"> Rojo<br>
+            <input type="radio" name="q1" value="Azul"> Azul<br>
+            <input type="radio" name="q1" value="Verde"> Verde<br>
+            <input type="radio" name="q1" value="Otro"> Otro<br>
+        </div>
+        <div>
+            <label for="q2">2. ¿Prefiere café o té?</label><br>
+            <input type="radio" name="q2" value="Café"> Café<br>
+            <input type="radio" name="q2" value="Té"> Té<br>
+            <input type="radio" name="q2" value="Ninguno"> Ninguno<br>
+        </div>
+        <div>
+            <label for="q3">3. ¿Qué tipo de música escucha más?</label><br>
+            <input type="radio" name="q3" value="Pop"> Pop<br>
+            <input type="radio" name="q3" value="Rock"> Rock<br>
+            <input type="radio" name="q3" value="Clásica"> Clásica<br>
+            <input type="radio" name="q3" value="Otro"> Otro<br>
+        </div>
+        <div>
+            <label for="q4">4. ¿Qué medio de transporte utiliza con mayor frecuencia?</label><br>
+            <input type="radio" name="q4" value="Auto"> Auto<br>
+            <input type="radio" name="q4" value="Transporte público"> Transporte público<br>
+            <input type="radio" name="q4" value="Bicicleta"> Bicicleta<br>
+            <input type="radio" name="q4" value="A pie"> A pie<br>
+        </div>
+        <div>
+            <label for="q5">5. ¿Cuál es su género de película favorito?</label><br>
+            <input type="radio" name="q5" value="Acción"> Acción<br>
+            <input type="radio" name="q5" value="Comedia"> Comedia<br>
+            <input type="radio" name="q5" value="Drama"> Drama<br>
+            <input type="radio" name="q5" value="Terror"> Terror<br>
+        </div>
+        <div>
+            <label for="q6">6. ¿Qué dispositivo usa más a menudo?</label><br>
+            <input type="radio" name="q6" value="Teléfono"> Teléfono<br>
+            <input type="radio" name="q6" value="Computadora"> Computadora<br>
+            <input type="radio" name="q6" value="Tableta"> Tableta<br>
+            <input type="radio" name="q6" value="Otro"> Otro<br>
+        </div>
+        <div>
+            <label for="q7">7. ¿Prefiere leer libros en formato físico o digital?</label><br>
+            <input type="radio" name="q7" value="Físico"> Físico<br>
+            <input type="radio" name="q7" value="Digital"> Digital<br>
+        </div>
+        <div>
+            <label for="q8">8. ¿Qué deporte le gusta más?</label><br>
+            <input type="radio" name="q8" value="Fútbol"> Fútbol<br>
+            <input type="radio" name="q8" value="Básquetbol"> Básquetbol<br>
+            <input type="radio" name="q8" value="Natación"> Natación<br>
+            <input type="radio" name="q8" value="Otro"> Otro<br>
+        </div>
+        <div>
+            <label for="q9">9. ¿Cuál es su comida favorita?</label><br>
+            <input type="radio" name="q9" value="Pizza"> Pizza<br>
+            <input type="radio" name="q9" value="Pasta"> Pasta<br>
+            <input type="radio" name="q9" value="Ensalada"> Ensalada<br>
+            <input type="radio" name="q9" value="Otro"> Otro<br>
+        </div>
+        <div>
+            <label for="q10">10. ¿Qué red social usa con mayor frecuencia?</label><br>
+            <input type="radio" name="q10" value="Facebook"> Facebook<br>
+            <input type="radio" name="q10" value="Instagram"> Instagram<br>
+            <input type="radio" name="q10" value="Twitter"> Twitter<br>
+            <input type="radio" name="q10" value="Otro"> Otro<br>
+        </div>
+        <button type="button" onclick="submitSurvey()">Enviar</button>
+    </form>
 
-    <label for="question2">¿Qué comida prefieres?</label><br>
-    <select id="question2" name="question2" required>
-      <option value="pizza">Pizza</option>
-      <option value="hamburguesa">Hamburguesa</option>
-      <option value="ensalada">Ensalada</option>
-      <option value="pasta">Pasta</option>
-    </select><br><br>
-
-    <button type="submit">Enviar</button>
-  </form>
-
-  <script>
-    document.getElementById("survey-form").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const data = {
-        question1: document.getElementById("question1").value,
-        question2: document.getElementById("question2").value,
-        ip: "localhost", // La IP estática del servidor
-      };
-
-      try {
-        // Cambiar la URL para que apunte a localhost y use HTTPS
-        const response = await fetch("https://localhost:3000/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(data),
-        });
-
-        if (response.ok) {
-          alert("Encuesta enviada con éxito");
-        } else {
-          alert("Error al enviar la encuesta");
+    <script>
+        function submitSurvey() {
+            const formData = new FormData(document.getElementById('surveyForm'));
+            const surveyResults = {};
+            for (const [key, value] of formData.entries()) {
+                surveyResults[key] = value;
+            }
+            
+            // Enviar datos a GitHub (requiere configuración del workflow y API_TOKEN)
+            fetch('https://api.github.com/repos/dariohcn/ncst/contents/survey_results.json', {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `Bearer ${API_TOKEN}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    message: 'Agregar resultados de encuesta',
+                    content: btoa(JSON.stringify(surveyResults, null, 2))
+                })
+            }).then(response => {
+                if (response.ok) {
+                    alert('Encuesta enviada exitosamente');
+                } else {
+                    alert('Error al enviar la encuesta');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
+                alert('Error al enviar la encuesta');
+            });
         }
-      } catch (err) {
-        alert("No se pudo conectar con el servidor");
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
