@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta</title>
+</head>
+<body>
+    <h1>Encuesta</h1>
+    <form id="surveyForm">
+        <label for="question1">1. ¿Cuál es tu color favorito?</label><br>
+        <select id="question1" name="question1">
+            <option value="rojo">Rojo</option>
+            <option value="azul">Azul</option>
+            <option value="verde">Verde</option>
+            <option value="amarillo">Amarillo</option>
+        </select>
+        <br><br>
+        <label for="question2">2. ¿Qué tipo de música prefieres?</label><br>
+        <select id="question2" name="question2">
+            <option value="pop">Pop</option>
+            <option value="rock">Rock</option>
+            <option value="jazz">Jazz</option>
+            <option value="clasica">Clásica</option>
+        </select>
+        <br><br>
+        <button type="button" onclick="submitSurvey()">Enviar</button>
+    </form>
+    <script>
+        function submitSurvey() {
+            const question1 = document.getElementById("question1").value;
+            const question2 = document.getElementById("question2").value;
+
+            fetch("http://<TU_IP>:3000/survey", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question1, question2 })
+            })
+            .then(response => response.json())
+            .then(data => alert("¡Encuesta enviada!"))
+            .catch(error => console.error("Error al enviar la encuesta:", error));
+        }
+    </script>
+</body>
+</html>
