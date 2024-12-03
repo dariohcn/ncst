@@ -33,11 +33,11 @@
       const data = {
         question1: document.getElementById("question1").value,
         question2: document.getElementById("question2").value,
-        ip: "200.7.82.219" // IP estática según la especificación
+        ip: "200.7.82.219", // IP estática
       };
 
       try {
-        const response = await fetch("http://200.7.82.219:3000/submit", {
+        const response = await fetch("https://200.7.82.219:3000/submit", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
