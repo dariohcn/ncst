@@ -33,15 +33,17 @@
       const data = {
         question1: document.getElementById("question1").value,
         question2: document.getElementById("question2").value,
-        ip: "200.7.82.219", // IP estática
+        ip: "localhost", // La IP estática del servidor
       };
 
       try {
-        const response = await fetch("https://200.7.82.219:3000/submit", {
+        // Cambiar la URL para que apunte a localhost y use HTTPS
+        const response = await fetch("https://localhost:3000/submit", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
         });
+
         if (response.ok) {
           alert("Encuesta enviada con éxito");
         } else {
