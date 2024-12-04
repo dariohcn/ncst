@@ -6,21 +6,49 @@
     <title>Encuesta</title>
 </head>
 <body>
-    <h1>Encuesta: ¿Cuál es su lenguaje de programación favorito?</h1>
-    <form id="surveyForm" action="http://localhost:3000/submit" method="POST">
+    <h1>Encuesta: ¿Cuál es tu lenguaje de programación favorito?</h1>
+    <form id="survey-form">
         <label>
             <input type="radio" name="language" value="JavaScript" required> JavaScript
         </label><br>
         <label>
-            <input type="radio" name="language" value="Python"> Python
+            <input type="radio" name="language" value="Python" required> Python
         </label><br>
         <label>
-            <input type="radio" name="language" value="Java"> Java
+            <input type="radio" name="language" value="Java" required> Java
         </label><br>
         <label>
-            <input type="radio" name="language" value="C++"> C++
-        </label><br><br>
+            <input type="radio" name="language" value="C++" required> C++
+        </label><br>
         <button type="submit">Enviar</button>
     </form>
+
+    <p id="response-message"></p>
+
+    <script>
+        const form = document.getElementById('survey-form');
+        const responseMessage = document.getElementById('response-message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const response = await fetch('/submit', {
+                method: 'POST',
+                body: JSON.stringify({
+                    language: formData.get('language')
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                responseMessage.textContent = "¡Gracias por participar!";
+                form.reset();
+            } else {
+                responseMessage.textContent = "Hubo un error al enviar la encuesta.";
+            }
+        });
+    </script>
 </body>
 </html>
