@@ -1,55 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Encuesta</title>
 </head>
 <body>
-    <h1>Encuesta: ¿Cuál es tu lenguaje de programación favorito?</h1>
-    <form id="survey-form">
+    <h1>Encuesta: ¿Cuál es su lenguaje de programación favorito?</h1>
+    <form id="pollForm">
         <label>
-            <input type="radio" name="language" value="JavaScript" required> JavaScript
+            <input type="radio" name="answer" value="JavaScript"> JavaScript
         </label><br>
         <label>
-            <input type="radio" name="language" value="Python" required> Python
+            <input type="radio" name="answer" value="Python"> Python
         </label><br>
         <label>
-            <input type="radio" name="language" value="Java" required> Java
+            <input type="radio" name="answer" value="Java"> Java
         </label><br>
         <label>
-            <input type="radio" name="language" value="C++" required> C++
-        </label><br>
-        <button type="submit">Enviar</button>
+            <input type="radio" name="answer" value="C++"> C++
+        </label><br><br>
+        <button type="submit">Enviar Respuesta</button>
     </form>
 
-    <p id="response-message"></p>
-
     <script>
-        const form = document.getElementById('survey-form');
-        const responseMessage = document.getElementById('response-message');
+        const form = document.getElementById('pollForm');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
 
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
             const formData = new FormData(form);
+            const answer = formData.get('answer');
+
+            if (!answer) {
+                alert("Seleccione una respuesta antes de enviar.");
+                return;
+            }
 
             try {
-                const response = await fetch('/submit', {
+                const response = await fetch('/poll', {
                     method: 'POST',
-                    body: JSON.stringify({ language: formData.get('language') }),
-                    headers: { 'Content-Type': 'application/json' }
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ answer })
                 });
 
                 const result = await response.json();
-
                 if (response.ok) {
-                    responseMessage.textContent = result.message;
-                    form.reset();
+                    alert("Gracias por participar en la encuesta.");
                 } else {
-                    responseMessage.textContent = result.error || 'Error al enviar la encuesta.';
+                    alert("Error: " + result.error);
                 }
             } catch (error) {
-                responseMessage.textContent = 'Error al conectarse al servidor.';
+                alert("Hubo un problema al enviar su respuesta.");
             }
         });
     </script>
