@@ -33,8 +33,8 @@
         const resultsDiv = document.getElementById('results');
         const resultsList = document.getElementById('resultsList');
 
-        // Función para guardar la respuesta y actualizar resultados
-        form.addEventListener('submit', (event) => {
+        // Manejar el envío del formulario
+        form.addEventListener('submit', async (event) => {
             event.preventDefault();
 
             const formData = new FormData(form);
@@ -45,32 +45,44 @@
                 return;
             }
 
-            // Guardar respuesta en localStorage
-            const responses = JSON.parse(localStorage.getItem('ncstResponses')) || [];
-            responses.push(answer);
-            localStorage.setItem('ncstResponses', JSON.stringify(responses));
+            try {
+                // Enviar respuesta al servidor
+                const response = await fetch('/poll', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ answer })
+                });
 
-            alert("Gracias por participar en la encuesta.");
-            form.reset();
-            displayResults();
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Gracias por participar en la encuesta.");
+                    form.reset();
+                    displayResults();
+                } else {
+                    alert("Error: " + result.error);
+                }
+            } catch (error) {
+                alert("Hubo un problema al enviar su respuesta.");
+            }
         });
 
-        // Función para mostrar resultados
-        function displayResults() {
-            const responses = JSON.parse(localStorage.getItem('ncstResponses')) || [];
-            const counts = responses.reduce((acc, answer) => {
-                acc[answer] = (acc[answer] || 0) + 1;
-                return acc;
-            }, {});
+        // Mostrar resultados
+        async function displayResults() {
+            try {
+                const response = await fetch('/results');
+                const results = await response.json();
 
-            resultsList.innerHTML = '';
-            for (const [answer, count] of Object.entries(counts)) {
-                const li = document.createElement('li');
-                li.textContent = `${answer}: ${count} votos`;
-                resultsList.appendChild(li);
+                resultsList.innerHTML = '';
+                for (const [answer, count] of Object.entries(results)) {
+                    const li = document.createElement('li');
+                    li.textContent = `${answer}: ${count} votos`;
+                    resultsList.appendChild(li);
+                }
+
+                resultsDiv.style.display = 'block';
+            } catch (error) {
+                console.error("Error al obtener resultados:", error);
             }
-
-            resultsDiv.style.display = 'block';
         }
 
         // Mostrar resultados al cargar la página
