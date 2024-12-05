@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuesta</title>
+    <title>Encuesta NCST</title>
 </head>
 <body>
-    <h1>Encuesta: ¿Cuál es su lenguaje de programación favorito?</h1>
+    <h1>Encuesta NCST: ¿Cuál es su lenguaje de programación favorito?</h1>
     <form id="pollForm">
         <label>
             <input type="radio" name="answer" value="JavaScript"> JavaScript
@@ -23,9 +23,18 @@
         <button type="submit">Enviar Respuesta</button>
     </form>
 
+    <div id="results" style="margin-top: 20px; display: none;">
+        <h2>Resultados:</h2>
+        <ul id="resultsList"></ul>
+    </div>
+
     <script>
         const form = document.getElementById('pollForm');
-        form.addEventListener('submit', async (event) => {
+        const resultsDiv = document.getElementById('results');
+        const resultsList = document.getElementById('resultsList');
+
+        // Función para guardar la respuesta y actualizar resultados
+        form.addEventListener('submit', (event) => {
             event.preventDefault();
 
             const formData = new FormData(form);
@@ -36,23 +45,36 @@
                 return;
             }
 
-            try {
-                const response = await fetch('/poll', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ answer })
-                });
+            // Guardar respuesta en localStorage
+            const responses = JSON.parse(localStorage.getItem('ncstResponses')) || [];
+            responses.push(answer);
+            localStorage.setItem('ncstResponses', JSON.stringify(responses));
 
-                const result = await response.json();
-                if (response.ok) {
-                    alert("Gracias por participar en la encuesta.");
-                } else {
-                    alert("Error: " + result.error);
-                }
-            } catch (error) {
-                alert("Hubo un problema al enviar su respuesta.");
-            }
+            alert("Gracias por participar en la encuesta.");
+            form.reset();
+            displayResults();
         });
+
+        // Función para mostrar resultados
+        function displayResults() {
+            const responses = JSON.parse(localStorage.getItem('ncstResponses')) || [];
+            const counts = responses.reduce((acc, answer) => {
+                acc[answer] = (acc[answer] || 0) + 1;
+                return acc;
+            }, {});
+
+            resultsList.innerHTML = '';
+            for (const [answer, count] of Object.entries(counts)) {
+                const li = document.createElement('li');
+                li.textContent = `${answer}: ${count} votos`;
+                resultsList.appendChild(li);
+            }
+
+            resultsDiv.style.display = 'block';
+        }
+
+        // Mostrar resultados al cargar la página
+        displayResults();
     </script>
 </body>
 </html>
