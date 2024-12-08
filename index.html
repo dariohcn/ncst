@@ -1,92 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuesta NCST</title>
+  <title>Encuesta</title>
 </head>
 <body>
-    <h1>Encuesta NCST: ¿Cuál es su lenguaje de programación favorito?</h1>
-    <form id="pollForm">
-        <label>
-            <input type="radio" name="answer" value="JavaScript"> JavaScript
-        </label><br>
-        <label>
-            <input type="radio" name="answer" value="Python"> Python
-        </label><br>
-        <label>
-            <input type="radio" name="answer" value="Java"> Java
-        </label><br>
-        <label>
-            <input type="radio" name="answer" value="C++"> C++
-        </label><br><br>
-        <button type="submit">Enviar Respuesta</button>
-    </form>
+  <form id="myForm">
+    <label for="pregunta">¿Cuál es tu lenguaje de programación favorito?</label>
+    <input type="text" id="pregunta" name="respuesta">
+    <button type="submit">Enviar</button>
+  </form>
 
-    <div id="results" style="margin-top: 20px; display: none;">
-        <h2>Resultados:</h2>
-        <ul id="resultsList"></ul>
-    </div>
+  <script>
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
 
-    <script>
-        const form = document.getElementById('pollForm');
-        const resultsDiv = document.getElementById('results');
-        const resultsList = document.getElementById('resultsList');
-
-        // Manejar el envío del formulario
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-
-            const formData = new FormData(form);
-            const answer = formData.get('answer');
-
-            if (!answer) {
-                alert("Seleccione una respuesta antes de enviar.");
-                return;
-            }
-
-            try {
-                // Enviar respuesta al servidor
-                const response = await fetch('/poll', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ answer })
-                });
-
-                const result = await response.json();
-                if (response.ok) {
-                    alert("Gracias por participar en la encuesta.");
-                    form.reset();
-                    displayResults();
-                } else {
-                    alert("Error: " + result.error);
-                }
-            } catch (error) {
-                alert("Hubo un problema al enviar su respuesta.");
-            }
-        });
-
-        // Mostrar resultados
-        async function displayResults() {
-            try {
-                const response = await fetch('/results');
-                const results = await response.json();
-
-                resultsList.innerHTML = '';
-                for (const [answer, count] of Object.entries(results)) {
-                    const li = document.createElement('li');
-                    li.textContent = `${answer}: ${count} votos`;
-                    resultsList.appendChild(li);
-                }
-
-                resultsDiv.style.display = 'block';
-            } catch (error) {
-                console.error("Error al obtener resultados:", error);
-            }
-        }
-
-        // Mostrar resultados al cargar la página
-        displayResults();
-    </script>
+      fetch('http://tu-servidor:tu-puerto/datos', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error('Error:', error));
+    });
+  </script>
 </body>
 </html>
