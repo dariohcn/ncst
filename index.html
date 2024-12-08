@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encuesta</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta</title>
 </head>
 <body>
-  <h1>Encuesta Rápida</h1>
-  <form id="surveyForm">
-    <label for="response">¿Qué opinas de este servidor?</label><br><br>
-    <input type="text" id="response" name="response" placeholder="Escribe tu respuesta" required><br><br>
-    <button type="submit">Enviar</button>
-  </form>
+    <h1>Encuesta</h1>
+    <form id="surveyForm">
+        <label for="question">¿Cuál es su opinión sobre nuestro servicio?</label><br>
+        <input type="text" id="answer" name="answer" placeholder="Escriba su respuesta aquí..." required>
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <p id="responseMessage"></p>
 
-  <script>
-    document.getElementById('surveyForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
+    <script>
+        document.getElementById('surveyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const answer = document.getElementById('answer').value;
 
-      const response = document.getElementById('response').value;
-      try {
-        const res = await fetch('http://[192.168.1.8]:3000/responses', { // Reemplace [TU_IP_LOCAL] con su dirección IP
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ response })
+            const response = await fetch('/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ answer })
+            });
+
+            const result = await response.text();
+            document.getElementById('responseMessage').innerText = result;
+            document.getElementById('answer').value = '';
         });
-
-        if (res.ok) {
-          alert('¡Gracias por tu respuesta!');
-          document.getElementById('surveyForm').reset();
-        } else {
-          alert('Hubo un problema al enviar tu respuesta.');
-        }
-      } catch (error) {
-        alert('Error al conectar con el servidor.');
-        console.error(error);
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
