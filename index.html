@@ -6,7 +6,7 @@
   <title>Encuesta</title>
 </head>
 <body>
-  <h1>Encuesta rápida</h1>
+  <h1>Encuesta Rápida</h1>
   <form id="surveyForm">
     <label for="response">¿Qué opinas de este servidor?</label><br><br>
     <input type="text" id="response" name="response" placeholder="Escribe tu respuesta" required><br><br>
@@ -15,12 +15,11 @@
 
   <script>
     document.getElementById('surveyForm').addEventListener('submit', async (e) => {
-      e.preventDefault(); // Evitar recarga de la página
+      e.preventDefault();
 
       const response = document.getElementById('response').value;
-
       try {
-        const res = await fetch('http://localhost:3000/responses', {
+        const res = await fetch('http://[192.168.1.8]:3000/responses', { // Reemplace [TU_IP_LOCAL] con su dirección IP
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ response })
