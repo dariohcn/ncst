@@ -1,35 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuesta</title>
+    <title>Estructura de Carpetas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        details {
+            margin-bottom: 10px;
+        }
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Encuesta</h1>
-    <form id="surveyForm">
-        <label for="question">¿Cuál es su opinión sobre nuestro servicio?</label><br>
-        <input type="text" id="answer" name="answer" placeholder="Escriba su respuesta aquí..." required>
-        <br><br>
-        <button type="submit">Enviar</button>
-    </form>
-    <p id="responseMessage"></p>
 
-    <script>
-        document.getElementById('surveyForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const answer = document.getElementById('answer').value;
+<h1>Estructura de Carpetas</h1>
 
-            const response = await fetch('/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ answer })
-            });
+<details>
+    <summary>Admisión académica</summary>
+    <ul>
+        <details>
+            <summary>Admisión académica (sublista)</summary>
+            <ul>
+                <li>0.Becas</li>
+                <li>1.Entrevistas</li>
+            </ul>
+        </details>
+        <li>Homologación</li>
+        <li>Reconocimiento</li>
+        <li>Validación de conocimiento</li>
+        <li>Validación por ejercicio profesional</li>
+    </ul>
+</details>
 
-            const result = await response.text();
-            document.getElementById('responseMessage').innerText = result;
-            document.getElementById('answer').value = '';
-        });
-    </script>
+<details>
+    <summary>Autoevaluación de la carrera</summary>
+</details>
+
+<details>
+    <summary>Desarrollo enseñanza-aprendizaje</summary>
+</details>
+
+<details>
+    <summary>Evaluación de enseñanza aprendizaje</summary>
+</details>
+
+<details>
+    <summary>Planificación, control y seguimiento académico</summary>
+</details>
+
+<details>
+    <summary>Unidad de Titulación</summary>
+</details>
+
 </body>
 </html>
