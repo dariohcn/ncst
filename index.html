@@ -3,66 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UIDE - SAIC Business School</title>
+    <title>Estructura de Carpetas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #F5F5F5; /* Fondo gris claro */
-            color: #333333; /* Texto gris oscuro */
+            background-color: #800020; /* Vino tinto */
+            color: #f5deb3; /* Mostaza */
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #4A90E2; /* Azul moderno */
-            color: #FFFFFF;
-            padding: 20px;
+            background-color: #000080; /* Azul marino */
+            color: #f5deb3;
             text-align: center;
+            padding: 20px 0;
+            border-bottom: 4px solid #f5deb3;
         }
-        h1, h2 {
-            margin: 5px 0;
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        header h2 {
+            margin: 0;
+            font-size: 1.5em;
         }
         main {
+            max-width: 800px;
+            margin: 20px auto;
             padding: 20px;
+            background-color: #660000; /* Más oscuro para contraste */
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        h1 {
+            text-align: center;
+            color: #f5deb3;
+            margin-bottom: 20px;
         }
         details {
-            background-color: #FFFFFF;
-            border: 1px solid #DDDDDD;
-            border-radius: 5px;
             margin-bottom: 10px;
-            padding: 10px;
         }
         summary {
             cursor: pointer;
             font-weight: bold;
-            outline: none;
+            padding: 5px 10px;
+            background-color: #000080;
+            color: #f5deb3;
+            border-radius: 5px;
+        }
+        summary:hover {
+            background-color: #003366; /* Tonalidad más clara */
         }
         ul {
-            list-style-type: none;
-            padding-left: 20px;
+            list-style: none;
+            padding: 0;
         }
-        li {
-            margin: 5px 0;
+        ul li {
+            margin-left: 20px;
         }
         a {
-            color: #4A90E2;
             text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
+            color: #f5deb3;
+            font-weight: bold;
         }
         footer {
-            background-color: #333333;
-            color: #FFFFFF;
-            padding: 10px;
             text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            background-color: #000080;
+            color: #f5deb3;
+            border-top: 4px solid #f5deb3;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>UIDE</h1>
-    <h2>SAIC</h2>
+    <h1>Universidad Internacional del Ecuador</h1>
+    <h2>Sistema de Aseguramiento Interno de Calidad</h2>
     <h2>Business School</h2>
 </header>
 
@@ -76,19 +94,19 @@
                 <summary>Admisión académica</summary>
                 <ul>
                     <details>
-                        <summary>0. Becas</summary>
+                        <summary>0.Becas</summary>
                         <ul>
                             <li>0.1 2023</li>
                             <li>0.2 2024</li>
                         </ul>
                     </details>
                     <details>
-                        <summary>1. Entrevistas</summary>
+                        <summary>1.Entrevistas</summary>
                         <ul>
-                            <li>0.0 Abril-Agosto 2023</li>
-                            <li>0.1 Noviembre 2023-Marzo 2024</li>
-                            <li>0.2 Abril-Agosto 2024</li>
-                            <li>0.3 Octubre 2024-Marzo 2025</li>
+                            <li>0.0 Abril-Agosto.2023</li>
+                            <li>0.1 Noviembre.2023-Marzo.2024</li>
+                            <li>0.2 Abril-Agosto.2024</li>
+                            <li>0.3 Octubre.2024-Marzo.2025</li>
                         </ul>
                     </details>
                 </ul>
@@ -96,9 +114,9 @@
             <details>
                 <summary>Homologación</summary>
                 <ul>
-                    <li><strong onclick="alert('1. Carpeta por estudiante. La información se debe ingresar por año.\n\n1.1 Sílabos de la Universidad de procedencia*.\n1.2 Notas de la Universidad de procedencia*.\n1.3 Documento de homologación otorgado por la UIDE**.\n\n*El documento debe ingresarse tal como viene de la institución de procedencia.\n**El documento debe ser codificado según el documento de codificación de la UIDE.')">Importante</strong></li>
-                    <li>0.0 Enero-Diciembre 2023</li>
-                    <li>0.1 Enero-Diciembre 2024</li>
+                    <li><a href="#" onclick="alert('1.Carpeta por estudiante.\\n\\n1.1 Sílabos de la Universidad de procedencia*.\\n1.2 Notas de la Universidad de procedencia*.\\n1.3 Documento de homologación otorgado por la UIDE**.\\n\\n*El documento debe ingresarse tal como viene de la institución de procedencia.\\n**El documento debe ser codificado según el documento de codificación de la UIDE.')">Importante</a></li>
+                    <li>0.0 Enero-Diciembre.2023</li>
+                    <li>0.1 Enero-Diciembre.2024</li>
                 </ul>
             </details>
             <li>Reconocimiento</li>
