@@ -3,99 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universidad Internacional del Ecuador</title>
+    <title>UIDE - SAIC Business School</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #800020; /* Vino tinto */
-            color: #f5deb3; /* Mostaza */
+            background-color: #F5F5F5; /* Fondo gris claro */
+            color: #333333; /* Texto gris oscuro */
+            margin: 0;
+            padding: 0;
         }
-        h1 {
+        header {
+            background-color: #4A90E2; /* Azul moderno */
+            color: #FFFFFF;
+            padding: 20px;
             text-align: center;
-            color: #000080; /* Azul marino */
         }
-        h2 {
-            text-align: center;
-            color: #f5deb3;
+        h1, h2 {
+            margin: 5px 0;
+        }
+        main {
+            padding: 20px;
         }
         details {
+            background-color: #FFFFFF;
+            border: 1px solid #DDDDDD;
+            border-radius: 5px;
             margin-bottom: 10px;
+            padding: 10px;
         }
         summary {
             cursor: pointer;
             font-weight: bold;
+            outline: none;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        li {
+            margin: 5px 0;
         }
         a {
+            color: #4A90E2;
             text-decoration: none;
-            color: #f5deb3;
-            cursor: pointer;
+        }
+        a:hover {
+            text-decoration: underline;
         }
         footer {
+            background-color: #333333;
+            color: #FFFFFF;
+            padding: 10px;
             text-align: center;
-            margin-top: 20px;
-            color: #f5deb3;
         }
     </style>
 </head>
 <body>
 
-<h1>Universidad Internacional del Ecuador</h1>
-<h2>Sistema de Aseguramiento Interno de Calidad</h2>
-<h3>Business School</h3>
+<header>
+    <h1>UIDE</h1>
+    <h2>SAIC</h2>
+    <h2>Business School</h2>
+</header>
 
-<details>
-    <summary>Admisión académica</summary>
-    <ul>
-        <details>
-            <summary>Admisión académica</summary>
-            <ul>
-                <details>
-                    <summary>0.Becas</summary>
-                    <ul>
-                        0.1 2023<br>
-                        0.2 2024<br>
-                    </ul>
-                </details>
-                <details>
-                    <summary>1.Entrevistas</summary>
-                    <ul>
-                        0.0 Abril-Agosto.2023<br>
-                        0.1 Noviembre.2023-Marzo.2024<br>
-                        0.2 Abril-Agosto.2024<br>
-                        0.3 Octubre.2024-Marzo.2025<br>
-                    </ul>
-                </details>
-            </ul>
-        </details>
-        <details>
-            <summary>Homologación</summary>
-            <ul>
-                <a onclick="alert('1.Carpeta por estudiante. La información se debe ingresar por año.\n\n1.1 Sílabos de la Universidad de procedencia*.\n1.2 Notas de la Universidad de procedencia*.\n1.3 Documento de homologación otorgado por la UIDE**.\n\n*El documento debe ingresarse tal como viene de la institución de procedencia.\n**El documento debe ser codificado según el documento de codificación de la UIDE.')">Importante</a><br>
-                0.0 Enero-Diciembre.2023<br>
-                0.1 Enero-Diciembre.2024<br>
-            </ul>
-        </details>
-        <li>Reconocimiento</li>
-        <li>Validación de conocimiento</li>
-        <li>Validación por ejercicio profesional</li>
-    </ul>
-</details>
+<main>
+    <h1>Estructura de Carpetas</h1>
 
-<details>
-    <summary>Desarrollo enseñanza-aprendizaje</summary>
-</details>
+    <details>
+        <summary>Admisión académica</summary>
+        <ul>
+            <details>
+                <summary>Admisión académica</summary>
+                <ul>
+                    <details>
+                        <summary>0. Becas</summary>
+                        <ul>
+                            <li>0.1 2023</li>
+                            <li>0.2 2024</li>
+                        </ul>
+                    </details>
+                    <details>
+                        <summary>1. Entrevistas</summary>
+                        <ul>
+                            <li>0.0 Abril-Agosto 2023</li>
+                            <li>0.1 Noviembre 2023-Marzo 2024</li>
+                            <li>0.2 Abril-Agosto 2024</li>
+                            <li>0.3 Octubre 2024-Marzo 2025</li>
+                        </ul>
+                    </details>
+                </ul>
+            </details>
+            <details>
+                <summary>Homologación</summary>
+                <ul>
+                    <li><strong onclick="alert('1. Carpeta por estudiante. La información se debe ingresar por año.\n\n1.1 Sílabos de la Universidad de procedencia*.\n1.2 Notas de la Universidad de procedencia*.\n1.3 Documento de homologación otorgado por la UIDE**.\n\n*El documento debe ingresarse tal como viene de la institución de procedencia.\n**El documento debe ser codificado según el documento de codificación de la UIDE.')">Importante</strong></li>
+                    <li>0.0 Enero-Diciembre 2023</li>
+                    <li>0.1 Enero-Diciembre 2024</li>
+                </ul>
+            </details>
+            <li>Reconocimiento</li>
+            <li>Validación de conocimiento</li>
+            <li>Validación por ejercicio profesional</li>
+        </ul>
+    </details>
 
-<details>
-    <summary>Evaluación de enseñanza aprendizaje</summary>
-</details>
+    <details>
+        <summary>Desarrollo enseñanza-aprendizaje</summary>
+    </details>
 
-<details>
-    <summary>Planificación, control y seguimiento académico</summary>
-</details>
+    <details>
+        <summary>Evaluación de enseñanza aprendizaje</summary>
+    </details>
 
-<details>
-    <summary>Unidad de Titulación</summary>
-</details>
+    <details>
+        <summary>Planificación, control y seguimiento académico</summary>
+    </details>
+
+    <details>
+        <summary>Unidad de Titulación</summary>
+    </details>
+</main>
 
 <footer>
     <p>Desarrollado por Darío Hurtado</p>
