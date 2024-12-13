@@ -73,6 +73,13 @@
             margin: 5px 0;
             font-size: 0.95rem;
         }
+        li a {
+            text-decoration: none;
+            color: #8b0000;
+        }
+        li a:hover {
+            color: #5e2129;
+        }
         footer {
             background-color: #012e46;
             color: #FFFFFF;
@@ -85,6 +92,11 @@
             margin: 0;
         }
     </style>
+    <script>
+        function openPopup(url) {
+            window.open(url, '_blank', 'width=800,height=600,resizable=yes');
+        }
+    </script>
 </head>
 <body>
 
@@ -103,17 +115,17 @@
                     <details>
                         <summary>0. Becas</summary>
                         <ul>
-                            <li>0.1 2023</li>
-                            <li>0.2 2024</li>
+                            <li><a href="javascript:void(0)" onclick="openPopup('becas2023.html')">0.1 2023</a></li>
+                            <li><a href="javascript:void(0)" onclick="openPopup('becas2024.html')">0.2 2024</a></li>
                         </ul>
                     </details>
                     <details>
                         <summary>1. Entrevistas</summary>
                         <ul>
-                            <li>0.0 Abril-Agosto 2023</li>
-                            <li>0.1 Noviembre 2023-Marzo 2024</li>
-                            <li>0.2 Abril-Agosto 2024</li>
-                            <li>0.3 Octubre 2024-Marzo 2025</li>
+                            <li><a href="javascript:void(0)" onclick="openPopup('entrevistas2023a.html')">0.0 Abril-Agosto 2023</a></li>
+                            <li><a href="javascript:void(0)" onclick="openPopup('entrevistas2023b.html')">0.1 Noviembre 2023-Marzo 2024</a></li>
+                            <li><a href="javascript:void(0)" onclick="openPopup('entrevistas2024a.html')">0.2 Abril-Agosto 2024</a></li>
+                            <li><a href="javascript:void(0)" onclick="openPopup('entrevistas2024b.html')">0.3 Octubre 2024-Marzo 2025</a></li>
                         </ul>
                     </details>
                 </ul>
@@ -127,117 +139,8 @@
             <details>
                 <summary>Ayudantías de docencia e investigación</summary>
                 <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-            <details>
-                <summary>Contenidos de enseñanza-aprendizaje</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-            <details>
-                <summary>Gestión de sílabo</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-            <details>
-                <summary>Giras académicas</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-            <details>
-                <summary>Tutorías</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-        </ul>
-    </details>
-
-    <details>
-        <summary>Evaluación de enseñanza aprendizaje</summary>
-        <ul>
-            <details>
-                <summary>0. Notas</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-            <details>
-                <summary>1. Remediales - Recalificaciones</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-        </ul>
-    </details>
-
-    <details>
-        <summary>Planificación, control y seguimiento académico</summary>
-        <ul>
-            <details>
-                <summary>Comités Curriculares</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-            <details>
-                <summary>Juntas de escuela y facultad</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-            <details>
-                <summary>Modelo de productividad docente</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-            <details>
-                <summary>Planificación académica</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-        </ul>
-    </details>
-
-    <details>
-        <summary>Unidad de Titulación</summary>
-        <ul>
-            <details>
-                <summary>0. Asesoramiento y acompañamiento a la titulación</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-            <details>
-                <summary>1. Secretaría académica</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
-                </ul>
-            </details>
-            <details>
-                <summary>2. Varios</summary>
-                <ul>
-                    <li>2023</li>
-                    <li>2024</li>
+                    <li><a href="javascript:void(0)" onclick="openPopup('docencia2023.html')">2023</a></li>
+                    <li><a href="javascript:void(0)" onclick="openPopup('docencia2024.html')">2024</a></li>
                 </ul>
             </details>
         </ul>
