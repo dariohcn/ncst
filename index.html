@@ -16,44 +16,49 @@
         header {
             background: linear-gradient(135deg, #8b0000, #5e2129);
             color: #FFFFFF;
-            padding: 15px;
+            padding: 15px 20px;
             text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            border-bottom: 3px solid #f6a700;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border-bottom: 4px solid #f6a700;
         }
         h1 {
-            font-size: 2.8em;
-            margin: 5px 0;
+            font-size: 2.5rem;
+            margin: 0;
             font-weight: bold;
+            letter-spacing: 1px;
         }
         h2 {
-            font-size: 1.5em;
-            margin: 5px 0 15px 0;
+            font-size: 1.4rem;
+            margin: 10px 0 0;
+            font-weight: 300;
         }
         main {
             padding: 20px;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
         }
         details {
             background-color: #FFFFFF;
             border: 1px solid #E0E0E0;
             border-radius: 10px;
-            margin-bottom: 10px;
-            padding: 15px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
         }
         details:hover {
-            transform: translateY(-3px);
+            transform: scale(1.02);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         summary {
             cursor: pointer;
             font-weight: bold;
-            font-size: 1.3em;
+            font-size: 1.2rem;
             color: #8b0000;
-            transition: color 0.2s;
+            padding: 15px;
+            background: #fdfdfd;
+            border-radius: 10px 10px 0 0;
         }
         summary:hover {
             color: #5e2129;
@@ -61,22 +66,22 @@
         ul {
             list-style: none;
             padding-left: 20px;
-            margin: 10px 0;
+            margin: 0;
         }
         li {
-            margin: 8px 0;
+            margin: 5px 0;
+            font-size: 1rem;
         }
         .instructions {
             background-color: #F9FAFB;
-            border: 1px solid #E0E0E0;
-            border-radius: 8px;
+            border-left: 4px solid #8b0000;
             padding: 15px;
             margin: 10px 0;
-            font-size: 1em;
+            border-radius: 5px;
         }
         .instructions h3 {
-            margin: 0 0 8px 0;
-            font-size: 1.2em;
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
             color: #8b0000;
         }
         footer {
@@ -84,9 +89,8 @@
             color: #FFFFFF;
             padding: 15px;
             text-align: center;
-            font-size: 1em;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-            border-top: 3px solid #f6a700;
+            font-size: 0.9rem;
+            border-top: 4px solid #f6a700;
         }
         footer p {
             margin: 0;
@@ -101,8 +105,6 @@
 </header>
 
 <main>
-    <h2>Contenido</h2>
-
     <details>
         <summary>Admisión académica</summary>
         <ul>
@@ -127,82 +129,7 @@
                     </details>
                 </ul>
             </details>
-            <details>
-                <summary>Homologación</summary>
-                <div class="instructions">
-                    <h3>Indicaciones:</h3>
-                    <p>1. Se debe crear una carpeta por estudiante que contenga lo siguiente:</p>
-                    <ul>
-                        <li>1.1 Sílabos de la Universidad de procedencia*</li>
-                        <li>1.2 Notas de la Universidad de procedencia*</li>
-                        <li>1.3 Documento de homologación otorgado por la UIDE**</li>
-                        <li>1.4 La información se ingresa por año.</li>
-                    </ul>
-                    <p>*El documento debe ingresarse tal como viene de la institución de procedencia.<br>
-                       **El documento debe ser codificado según el documento de codificación de la UIDE.</p>
-                </div>
-                <ul>
-                    <li>0.0 Enero-Diciembre 2023</li>
-                    <li>0.1 Enero-Diciembre 2024</li>
-                </ul>
-            </details>
-
-            <details>
-                <summary>Reconocimiento</summary>
-                <div class="instructions">
-                    <h3>Indicaciones:</h3>
-                    <p>1. El reconocimiento es interno. Esto se da cuando un estudiante se cambia de carrera dentro de la misma institución. Se debe crear una carpeta por estudiante que contenga lo siguiente:</p>
-                    <ul>
-                        <li>1.1 Informe técnico emitido por Bienestar Estudiantil**.</li>
-                        <li>1.2 Acta de reconocimiento**.</li>
-                        <li>1.3 La información se ingresa por año.</li>
-                    </ul>
-                    <p>**El documento debe ser codificado según el documento de codificación de la UIDE.</p>
-                </div>
-                <ul>
-                    <li>0.0 Enero-Diciembre 2023</li>
-                    <li>0.1 Enero-Diciembre 2024</li>
-                </ul>
-            </details>
-
-            <details>
-                <summary>Validación de conocimiento</summary>
-                <div class="instructions">
-                    <h3>Indicaciones:</h3>
-                    <p>1. Se debe crear una carpeta por estudiante que contenga lo siguiente:</p>
-                    <ul>
-                        <li>1.1 Sílabos de la Universidad de procedencia*</li>
-                        <li>1.2 Notas de la Universidad de procedencia*</li>
-                        <li>1.3 Documento de homologación otorgado por la UIDE**</li>
-                    </ul>
-                    <p>*El documento debe ingresarse tal como viene de la institución de procedencia.<br>
-                       **El documento debe ser codificado según el documento de codificación de la UIDE.</p>
-                </div>
-                <ul>
-                    <li>0.0 Enero-Diciembre 2023</li>
-                    <li>0.1 Enero-Diciembre 2024</li>
-                </ul>
-            </details>
-
-            <details>
-                <summary>Validación por ejercicio profesional</summary>
-                <div class="instructions">
-                    <h3>Indicaciones:</h3>
-                    <p>1. Se debe crear una carpeta por estudiante que contenga lo siguiente:</p>
-                    <ul>
-                        <li>1.1 Sílabos de la Universidad de procedencia*</li>
-                        <li>1.2 Notas de la Universidad de procedencia*</li>
-                        <li>1.3 Documento de homologación otorgado por la UIDE**</li>
-                    </ul>
-                    <p>*El documento debe ingresarse tal como viene de la institución de procedencia.<br>
-                       **El documento debe ser codificado según el documento de codificación de la UIDE.</p>
-                </div>
-                <ul>
-                    <li>0.0 Enero-Diciembre 2023</li>
-                    <li>0.1 Enero-Diciembre 2024</li>
-                </ul>
-            </details>       
-
+        </ul>
     </details>
 
     <details>
