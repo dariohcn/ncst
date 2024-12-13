@@ -81,6 +81,19 @@
             transform: scale(1.1);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
         }
+        .instructions {
+            background: #f6a700;
+            color: #FFFFFF;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 1em;
+        }
+        .instructions h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+        }
         footer {
             background-color: #012e46;
             color: #FFFFFF;
@@ -131,8 +144,19 @@
             </details>
             <details>
                 <summary>Homologación</summary>
+                <div class="instructions">
+                    <h3>Indicaciones:</h3>
+                    <p>1. Se debe crear una carpeta por estudiante que contenga lo siguiente:</p>
+                    <ul>
+                        <li>1.1 Sílabos de la Universidad de procedencia*</li>
+                        <li>1.2 Notas de la Universidad de procedencia*</li>
+                        <li>1.3 Documento de homologación otorgado por la UIDE**</li>
+                        <li>1.4 La información se ingresa por año.</li>
+                    </ul>
+                    <p>*El documento debe ingresarse tal como viene de la institución de procedencia.<br>
+                       **El documento debe ser codificado según el documento de codificación de la UIDE.</p>
+                </div>
                 <ul>
-                    <a class="important-link" href="javascript:void(0);" onclick="let ventana=window.open('', '', 'width=400,height=400'); ventana.document.write('<html><head><style>body{font-family:Arial, sans-serif; margin:20px; color:#333;} h1{font-size:18px; margin-bottom:10px;} ul{margin:0; padding-left:20px;} p{margin:5px 0;}</style></head><body>1. Se debe crear una carpeta por estudiante que contenga lo siguiente:<br><ul>1.1 Sílabos de la Universidad de procedencia*<br>1.2 Notas de la Universidad de procedencia*<br>1.3 Documento de homologación otorgado por la UIDE**<br>1.4 La información se ingresa por año.<br></ul>*El documento debe ingresarse tal como viene de la institución de procedencia.<br>**El documento debe ser codificado según el documento de codificación de la UIDE.<br><button onclick=window.close()>Cerrar</button></body></html>'); ventana.document.close();">Indicaciones</a><br>
                     <li>0.0 Enero-Diciembre 2023</li>
                     <li>0.1 Enero-Diciembre 2024</li>
                 </ul>
@@ -140,8 +164,17 @@
 
             <details>
                 <summary>Reconocimiento</summary>
+                <div class="instructions">
+                    <h3>Indicaciones:</h3>
+                    <p>1. El reconocimiento es interno. Esto se da cuando un estudiante se cambia de carrera dentro de la misma institución. Se debe crear una carpeta por estudiante que contenga lo siguiente:</p>
+                    <ul>
+                        <li>1.1 Informe técnico emitido por Bienestar Estudiantil**.</li>
+                        <li>1.2 Acta de reconocimiento**.</li>
+                        <li>1.3 La información se ingresa por año.</li>
+                    </ul>
+                    <p>**El documento debe ser codificado según el documento de codificación de la UIDE.</p>
+                </div>
                 <ul>
-                    <a class="important-link" href="javascript:void(0);" onclick="let ventana=window.open('', '', 'width=400,height=400'); ventana.document.write('<html><head><style>body{font-family:Arial, sans-serif; margin:20px; color:#333;} h1{font-size:18px; margin-bottom:10px;} ul{margin:0; padding-left:20px;} p{margin:5px 0;}</style></head><body>1. El reconocimiento es interno. Esto se da cuando un estudiante se cambia de carrera dentro de la misma institución. Se debe crear una carpeta por estudiante que contenga lo siguiente:<br><ul>1.1 Informe técnico emitido por Bienestar Estudiantil**.<br>1.2 Acta de reconocimiento**.<br>1.3 La información se ingresa por año.<br>.**El documento debe ser codificado según el documento de codificación de la UIDE.<br><button onclick=window.close()>Cerrar</button></body></html>'); ventana.document.close();">Indicaciones</a><br>
                     <li>0.0 Enero-Diciembre 2023</li>
                     <li>0.1 Enero-Diciembre 2024</li>
                 </ul>
@@ -149,8 +182,18 @@
 
             <details>
                 <summary>Validación de conocimiento</summary>
+                <div class="instructions">
+                    <h3>Indicaciones:</h3>
+                    <p>1. Se debe crear una carpeta por estudiante que contenga lo siguiente:</p>
+                    <ul>
+                        <li>1.1 Sílabos de la Universidad de procedencia*</li>
+                        <li>1.2 Notas de la Universidad de procedencia*</li>
+                        <li>1.3 Documento de homologación otorgado por la UIDE**</li>
+                    </ul>
+                    <p>*El documento debe ingresarse tal como viene de la institución de procedencia.<br>
+                       **El documento debe ser codificado según el documento de codificación de la UIDE.</p>
+                </div>
                 <ul>
-                    <a class="important-link" href="javascript:void(0);" onclick="let ventana=window.open('', '', 'width=400,height=400'); ventana.document.write('<html><head><style>body{font-family:Arial, sans-serif; margin:20px; color:#333;} h1{font-size:18px; margin-bottom:10px;} ul{margin:0; padding-left:20px;} p{margin:5px 0;}</style></head><body>1. Se debe crear una carpeta por estudiante que contenga lo siguiente:<br><ul>1.1 Sílabos de la Universidad de procedencia*<br>1.2 Notas de la Universidad de procedencia*<br>1.3 Documento de homologación otorgado por la UIDE**<br></ul>*El documento debe ingresarse tal como viene de la institución de procedencia.<br>**El documento debe ser codificado según el documento de codificación de la UIDE.<br><button onclick=window.close()>Cerrar</button></body></html>'); ventana.document.close();">Indicaciones</a><br>
                     <li>0.0 Enero-Diciembre 2023</li>
                     <li>0.1 Enero-Diciembre 2024</li>
                 </ul>
@@ -158,35 +201,13 @@
 
             <details>
                 <summary>Validación por ejercicio profesional</summary>
-                <ul>
-                    <a class="important-link" href="javascript:void(0);" onclick="let ventana=window.open('', '', 'width=400,height=400'); ventana.document.write('<html><head><style>body{font-family:Arial, sans-serif; margin:20px; color:#333;} h1{font-size:18px; margin-bottom:10px;} ul{margin:0; padding-left:20px;} p{margin:5px 0;}</style></head><body>1. Se debe crear una carpeta por estudiante que contenga lo siguiente:<br><ul>1.1 Sílabos de la Universidad de procedencia*<br>1.2 Notas de la Universidad de procedencia*<br>1.3 Documento de homologación otorgado por la UIDE**<br></ul>*El documento debe ingresarse tal como viene de la institución de procedencia.<br>**El documento debe ser codificado según el documento de codificación de la UIDE.<br><button onclick=window.close()>Cerrar</button></body></html>'); ventana.document.close();">Indicaciones</a><br>
-                    <li>0.0 Enero-Diciembre 2023</li>
-                    <li>0.1 Enero-Diciembre 2024</li>
-                </ul>
-            </details>       
-
-    </details>
-
-    <details>
-        <summary>Desarrollo enseñanza-aprendizaje</summary>
-    </details>
-
-    <details>
-        <summary>Evaluación de enseñanza aprendizaje</summary>
-    </details>
-
-    <details>
-        <summary>Planificación, control y seguimiento académico</summary>
-    </details>
-
-    <details>
-        <summary>Unidad de Titulación</summary>
-    </details>
-</main>
-
-<footer>
-    <p>&copy; 2024 Darío Hurtado</p>
-</footer>
-
-</body>
-</html>
+                <div class="instructions">
+                    <h3>Indicaciones:</h3>
+                    <p>1. Se debe crear una carpeta por estudiante que contenga lo siguiente:</p>
+                    <ul>
+                        <li>1.1 Sílabos de la Universidad de procedencia*</li>
+                        <li>1.2 Notas de la Universidad de procedencia*</li>
+                        <li>1.3 Documento de homologación otorgado por la UIDE**</li>
+                    </ul>
+                    <p>*El documento debe ingresarse tal como viene de la institución de procedencia.<br>
+                       **El documento debe ser codificado según el documento de codificación de la UIDE.</p>
